@@ -1,0 +1,1 @@
+D:\Github\Source\Repos\Sitecore.SharedSource.DatasourceIndexer\NuGet\nuget.exe pack "D:\Github\Source\Repos\Sitecore.SharedSource.DatasourceIndexer\Sitecore.SharedSource.DatasourceIndexer\Sitecore.SharedSource.DatasourceIndexer.csproj" -OutputDirectory "..\Nuget\Release"
