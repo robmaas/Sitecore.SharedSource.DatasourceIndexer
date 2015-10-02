@@ -12,4 +12,4 @@ From a technical point of view this makes a lot of sense, because the concept of
 This module is a solution to this problem.
 It indexes fields on related datasource items into the indexed item, and results in those 'missing pages' to be returned from the search query!
 
-Further documentation is available on GitHub (https://github.com/robmaas/Sitecore.SharedSource.DatasourceIndexer).
+<hr />
