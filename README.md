@@ -1,4 +1,4 @@
-# DatasourceIndexer
+# Datasource Indexer
 
 <b>The Sitecore.SharedSource.DatasourceIndexer makes it possible to retrieve search results by content from items referenced by datasources.</b>
 
@@ -13,3 +13,13 @@ This module is a solution to this problem.
 It indexes fields on related datasource items into the indexed item, and results in those 'missing pages' to be returned from the search query!
 
 <hr />
+
+<b>Installation</b>
+The module is available on NuGet with id: Sitecore.ContentSearch.DatasourceIndexer (https://www.nuget.org/packages/Sitecore.SharedSource.DatasourceIndexer)
+- Install Nuget Package
+- Install Sitecore package (/Sitecore_Package/Sitecore.SharedSource.DatasourceIndexer-*.zip)
+
+The Sitecore package installs a Field Section into the "/sitecore/templates/System/Layout/Sections/Rendering Options" item.
+As a result, any rendering-definition (Sublayout, MVC Controller Rendering, Webcontrol) will have a new field available: "Index Datasource Fields"
+
+<b>Usage</b>
