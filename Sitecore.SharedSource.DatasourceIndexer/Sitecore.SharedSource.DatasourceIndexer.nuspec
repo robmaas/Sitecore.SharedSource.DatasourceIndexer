@@ -8,7 +8,7 @@
     <owners>Rob Maas</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/robmaas/Sitecore.SharedSource.DatasourceIndexer</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/robmaas/Sitecore.SharedSource.DatasourceIndexer/master/NuGet/sitecore-logo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/robmaas/Sitecore.SharedSource.DatasourceIndexer/master/Resources/NuGet/sitecore-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This module indexes fields from datasource-items, which makes it possible to retrieve searchresults when using content-blocks.</description>
     <releaseNotes>First release (1.0.0.0)</releaseNotes>
