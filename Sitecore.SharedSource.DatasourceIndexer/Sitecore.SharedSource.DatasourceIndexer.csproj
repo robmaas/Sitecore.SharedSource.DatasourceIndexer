@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Sitecore.SharedSource.DatasourceIndexer\Sitecore.SharedSource.DatasourceIndexer.config" />
+    <Content Include="Sitecore_Package\Sitecore.SharedSource.DatasourceIndexer-1.0.zip" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

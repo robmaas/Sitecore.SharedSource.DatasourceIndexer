@@ -16,8 +16,7 @@
     <tags>Sitecore SharedSource Datasource DatasourceIndexer ContentSearch</tags>
   </metadata>
   <files>
-	<!--<file src="App_Config" target="" />-->
 	<file src="App_Config\**\*.*" target="" />
-	<file src="..\Sitecore package\Sitecore.SharedSource.DatasourceIndexer-1.0.zip" target="Sitecore_Package\Sitecore.SharedSource.DatasourceIndexer-1.0.zip" />
+	<file src="Sitecore_Package\Sitecore.SharedSource.DatasourceIndexer-1.0.zip" target="" />
   </files>
 </package>
