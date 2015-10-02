@@ -22,6 +22,7 @@ The module is available on NuGet with id: Sitecore.ContentSearch.DatasourceIndex
 The Sitecore package installs a Field Section into the "/sitecore/templates/System/Layout/Sections/Rendering Options" item.
 As a result, any rendering-definition (Sublayout, MVC Controller Rendering, Webcontrol) will have a new field available: "Index Datasource Fields"
 - Publish the above item.
+- Reindex your indexes
 
 ![](http://content.screencast.com/users/RMaas/folders/Jing/media/298ea2a1-7dee-47bd-890c-24708d9640e0/2015-10-02_1006.png)
 
