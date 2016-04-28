@@ -1,4 +1,5 @@
 ﻿using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
 using Sitecore.Layouts;
 using Sitecore.SharedSource.DatasourceIndexer.Utils;
 using System;
@@ -13,26 +14,15 @@ namespace Sitecore.SharedSource.DatasourceIndexer.ContentSearch.Fields
     {
         public object ComputeFieldValue(Sitecore.ContentSearch.IIndexable indexable)
         {
-            string retValue = string.Empty;
-
             try
             {
                 Assert.ArgumentNotNull(indexable, "indexable");
-                SC.ContentSearch.SitecoreIndexableItem scIndexable =
-                  indexable as SC.ContentSearch.SitecoreIndexableItem;
-
-                if (scIndexable == null)
-                {
-                    //Log.Log.Warn(this + " : unsupported IIndexable type : " + indexable.GetType());
-                    return false;
-                }
-
-                SC.Data.Items.Item item = (SC.Data.Items.Item)scIndexable;
+                SC.Data.Items.Item item = indexable as SC.ContentSearch.SitecoreIndexableItem;
 
                 if (item == null || item.Database == null)
                 {
                     //Log.Log.Warn(this + " : unsupported SitecoreIndexableItem type : " + scIndexable.GetType());
-                    return false;
+                    return null;
                 }
 
                 if (!item.Paths.IsContentItem)
@@ -76,7 +66,7 @@ namespace Sitecore.SharedSource.DatasourceIndexer.ContentSearch.Fields
                                 if (!string.IsNullOrWhiteSpace(fieldValue))
                                 {
                                     var resolvedDatasourceItem = DSIUtil.ResolveDatasource(rr.Settings.DataSource, item);
-                                    if(resolvedDatasourceItem != null)
+                                    if (resolvedDatasourceItem != null)
                                     {
                                         allFieldValues.AddRange(fieldValue.Split('|').Select(fieldName => resolvedDatasourceItem[fieldName]));
                                     }
@@ -84,11 +74,21 @@ namespace Sitecore.SharedSource.DatasourceIndexer.ContentSearch.Fields
                             }
                         }
                     }
-                    retValue = String.Join("|", allFieldValues.Where(c => !string.IsNullOrWhiteSpace(c)));
+
+                    string returnValue = String.Join("|", allFieldValues.Where(c => !string.IsNullOrWhiteSpace(c)));
+
+                    if (string.IsNullOrWhiteSpace(returnValue))
+                        return null;
+
+                    return returnValue;
                 }
             }
-            catch (Exception) { }
-            return retValue;
+            catch (Exception ex)
+            {
+                Log.Warn(string.Format("Exception thrown at indexing: {0}", ex), this);
+            }
+
+            return null;
         }
 
         public string FieldName { get; set; }
