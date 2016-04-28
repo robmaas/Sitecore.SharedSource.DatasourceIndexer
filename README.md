@@ -22,6 +22,7 @@ The module is available on NuGet with id: Sitecore.ContentSearch.DatasourceIndex
 The Sitecore package installs a Field Section into the "/sitecore/templates/System/Layout/Sections/Rendering Options" item.
 As a result, any rendering-definition (Sublayout, MVC Controller Rendering, Webcontrol) will have a new field available: "Index Datasource Fields"
 - Publish the above item.
+- Reindex your indexes
 
 ![](http://content.screencast.com/users/RMaas/folders/Jing/media/298ea2a1-7dee-47bd-890c-24708d9640e0/2015-10-02_1006.png)
 
@@ -48,8 +49,10 @@ Enough talk, let's get some examples!
 In the screenshot above we've confiured the Block-rendering to index the 'Title' and the 'Content' field from the datasource. <br />
 I've made a 'Block', which is a shared content item.<br />
 ![](http://content.screencast.com/users/RMaas/folders/Jing/media/71de04ae-5ddd-429b-bfef-7681f9d62587/2015-10-02_1028.png)
-<br />
-Added the Block-rendering to a page called BlockPage, and selected the Block2-datasource item.
+<br /><br />
+Added the Block-rendering to a page called BlockPage, and selected the Block2-datasource item.<br />
+![](http://content.screencast.com/users/RMaas/folders/Jing/media/d4099807-d5a1-4d51-82eb-f5fc80e94fb0/2015-10-02_1121.png)
+
 
 By default Sitecore ContentSearch will not return my BlockPage when I use the term 'module'. But this is where this module comes in:<br />
 I've added a sample SearchResultItem-class (Sitecore.SharedSource.DatasourceIndexer.ContentSearch.SearchTypes.DatasourceSearchResultItem) to explain how to search the index content. <br />
@@ -67,3 +70,7 @@ using (var ctx = index.CreateSearchContext())
     searchResults.Where(x => x.Content.Contains(term) || x.DatasourceContent.Contains(term));
 }
 ```
+If you decide to use the regular "_content"-field you can use the default `Sitecore.ContentSearch.SearchResultItem` and it's property `Content`, no need for the extra `|| x.DatasourceContent.Contains(term)`.
+
+Result:<br />
+![](http://content.screencast.com/users/RMaas/folders/Jing/media/e6cf1cb0-305e-48cc-88f3-7b817fd55002/2015-10-02_1117.png)
